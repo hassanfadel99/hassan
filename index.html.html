@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>📋 استمارات المشاركة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom right, #e0f7fa, #80deea);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .container, .welcome {
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 90%;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      color: #006064;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .form-button, .start-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .form-button:hover, .start-button:hover {
+      background-color: #004d40;
+      transform: scale(1.05);
+    }
+
+    .back-button {
+      background-color: #dcdcdc;
+      color: #333;
+      margin-top: 30px;
+    }
+
+    .back-button:hover {
+      background-color: #c2c2c2;
+      transform: scale(1.03);
+    }
+
+    .form-button i, .start-button i, .back-button i {
+      margin-left: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      .form-button, .start-button, .back-button {
+        font-size: 16px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- صفحة الترحيب -->
+  <div class="welcome active" id="welcomeScreen">
+    <h1>مرحبا بك 
+في منصة تجمع شباب الشريعة مديرية البصرة</h1>
+    <p>قم بالدخول لقائمة الاستماير</p>
+    <button class="start-button" onclick="goToForms()">
+      <i class="fa-solid fa-arrow-right-to-bracket"></i> دخول
+    </button>
+  </div>
+
+  <!-- صفحة الأزرار -->
+  <div class="container" id="formScreen">
+    <h1>تجمع شباب الشريعة مديرية البصرة</h1>
+
+    <button class="form-button" onclick="openForm('https://docs.google.com/forms/d/1dLHzTmD-48skCH3O4cYOq1Lz2sYGlvueRdiGvYD-rfg/edit?usp=drive_open')">
+      <i class="fa-solid fa-users"></i> استمارة التجمع
+    </button>
+
+    <button class="form-button" onclick="openForm('https://docs.google.com/forms/d/1dGR105BMkw-Ynl1PEZk-JBDdW6f6-nmmT5dExk503vs/edit?usp=drive_open')">
+      <i class="fa-solid fa-campground"></i> استمارة الكشافة
+    </button>
+
+    <button class="back-button" onclick="goToWelcome()">
+      <i class="fa-solid fa-arrow-right"></i> رجوع
+    </button>
+  </div>
+
+  <script>
+    function goToForms() {
+      document.getElementById('welcomeScreen').classList.remove('active');
+      document.getElementById('formScreen').classList.add('active');
+    }
+
+    function goToWelcome() {
+      document.getElementById('formScreen').classList.remove('active');
+      document.getElementById('welcomeScreen').classList.add('active');
+    }
+
+    function openForm(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
